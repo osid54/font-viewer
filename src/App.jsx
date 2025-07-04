@@ -159,7 +159,6 @@ const App = () => {
   };
 
   const handleCopyFontName = (fontName) => {
-    // Create a temporary textarea element
     const tempTextArea = document.createElement('textarea');
     tempTextArea.value = fontName;
     document.body.appendChild(tempTextArea);
@@ -168,7 +167,7 @@ const App = () => {
     try {
       document.execCommand('copy');
       setCopiedMessage(`'${fontName}' copied!`);
-      setTimeout(() => setCopiedMessage(''), 2000); // Clear message after 2 seconds
+      setTimeout(() => setCopiedMessage(''), 2000);
     } catch (err) {
       console.error('Failed to copy text: ', err);
       setCopiedMessage('Failed to copy!');
@@ -319,7 +318,6 @@ Another Font, Yet Another"
               >
                 {allAvailableFonts.map((font, index) => (
                   <div key={index} className="mb-4 p-3 bg-white border border-gray-200 rounded-md shadow-sm">
-                    {/* Font name, now clickable */}
                     <p
                       className="text-lg font-semibold text-gray-800 mb-2 cursor-pointer hover:underline"
                       onClick={() => handleCopyFontName(font)}
@@ -328,7 +326,7 @@ Another Font, Yet Another"
                       Font: <span className="text-blue-700">{font}</span>
                     </p>
                     <div
-                      className="text-gray-900 text-xl md:text-2xl p-2 border border-gray-300 rounded-md min-h-[60px] flex items-center justify-center text-center break-words"
+                      className="text-gray-900 text-xl md:text-2xl lg:text-[80px] p-2 border border-gray-300 rounded-md min-h-[80px] md:min-h-[100px] lg:min-h-[120px] flex items-center justify-center text-center break-words pointer-events-none"
                       style={{ fontFamily: font }}
                     >
                       {customText || "Type something above to see it here!"}
